@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Cormorant_Garamond } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -29,7 +30,20 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${cormorant.variable} antialiased bg-[#FCFAF8]`}
       >
-        {children}
+        <Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-CTTVNMM89H"
+  strategy="afterInteractive"
+/>
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CTTVNMM89H');
+  `}
+</Script>
+{children}
       </body>
     </html>
   );
