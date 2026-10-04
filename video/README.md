@@ -1,54 +1,23 @@
-# Remotion video
+# Lumora Nails Studio — promo video
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+15 s vertical promo (1080 × 1920, 30 fps) for Instagram Reels and TikTok, built with [Remotion](https://www.remotion.dev).
 
-Welcome to your Remotion project!
+| Time | Scene | What happens |
+| --- | --- | --- |
+| 0–2 s | Hook | An arch of light rises from a gold hairline and opens onto gold chrome nails. |
+| 2–5 s | Signature nails | Rack focus on hand-painted nail art, then the premium set floats in an arch over its own defocused reflection. |
+| 5–9 s | Services | Nude editorial spreads: Semipermanente, Pedicure and Pestañas, with photo, numeral and type moving at different depths. |
+| 9–12 s | Brand | The studio's lit arch draws itself while the camera pulls back from the Lumora sign. |
+| 12–15 s | Close | LUMORA NAILS STUDIO · *Detalles que brillan*. |
+
+Source code is in `src/Lumora/`. Photos (copied from the website) are in `public/images/`, and the brand fonts (Cormorant Garamond, Poppins) are in `public/fonts/`.
 
 ## Commands
 
-**Install Dependencies**
-
-```console
-npm i --loglevel=error
+```bash
+npm i
+npm run dev                                              # preview in Remotion Studio
+npx remotion render LumoraPromo out/lumora-promo.mp4     # render the MP4
 ```
 
-**Start Preview**
-
-```console
-npm run dev
-```
-
-**Render video**
-
-```console
-npx remotion render
-```
-
-**Upgrade Remotion**
-
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+In a Claude Code cloud session, add `--browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell` because Remotion cannot download its own browser there.
