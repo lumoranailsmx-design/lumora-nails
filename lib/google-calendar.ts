@@ -148,12 +148,16 @@ export async function listCalendarEvents(
 }
 
 export function eventBounds(event: CalendarEvent): { start: number; end: number } | null {
-  const startValue = event.start?.dateTime || (event.start?.date ? `${event.start.date}T00:00:00` : null);
-  const endValue = event.end?.dateTime || (event.end?.date ? `${event.end.date}T00:00:00` : null);
-  if (!startValue || !endValue) return null;
-
-  const start = Date.parse(startValue);
-  const end = Date.parse(endValue);
+  const start = event.start?.dateTime
+    ? Date.parse(event.start.dateTime)
+    : event.start?.date
+      ? Date.parse(localDateTimeToIso(event.start.date, "00:00"))
+      : Number.NaN;
+  const end = event.end?.dateTime
+    ? Date.parse(event.end.dateTime)
+    : event.end?.date
+      ? Date.parse(localDateTimeToIso(event.end.date, "00:00"))
+      : Number.NaN;
   if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) return null;
   return { start, end };
 }
